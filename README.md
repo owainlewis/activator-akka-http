@@ -7,7 +7,7 @@ without being too prescriptive or adding too much unwanted code.
 
 ```
 sbt run
-``
+```
 
 ## Packaging the service
 
