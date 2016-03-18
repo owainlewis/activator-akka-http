@@ -1,15 +1,15 @@
-package io.forward
-
 import akka.actor.ActorSystem
 import akka.event.Logging
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
-import com.typesafe.config.ConfigFactory
-import io.forward.service.healthcheck.HealthCheckService
+import service.healthcheck._
 
-object Main extends App with HealthCheckService {
+object Main extends App with HealthRoutes {
+
   implicit val system = ActorSystem()
+
   implicit val executor = system.dispatcher
+
   implicit val materializer = ActorMaterializer()
 
   val logger = Logging(system, "demo-service")

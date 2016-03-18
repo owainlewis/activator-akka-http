@@ -4,7 +4,7 @@ organization := "io.forward"
 
 name := "activator-akka-http"
 
-version := "1.0"
+version := "0.1.0"
 
 scalaVersion := "2.11.7"
 
@@ -25,38 +25,3 @@ libraryDependencies ++= {
     "org.scalatest"     %% "scalatest"                            % scalaTestV % "test"
   )
 }
-
-publishMavenStyle := true
-
-publishArtifact in Test := false
-
-pomIncludeRepository := { _ => false }
-
-publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
-}
-
-pomExtra :=
-  <url>http://</url>
-    <licenses>
-      <license>
-        <name>Apache-2.0</name>
-        <url>http://opensource.org/licenses/Apache-2.0</url>
-        <distribution>repo</distribution>
-      </license>
-    </licenses>
-    <scm>
-      <url>https://github.com/owainlewis</url>
-      <connection>scm:git:git@github.com:owainlewis/REPO.git</connection>
-    </scm>
-    <developers>
-      <developer>
-        <name>Owain Lewis</name>
-        <url>http://owainlewis.com</url>
-      </developer>
-    </developers>
-    
