@@ -1,10 +1,9 @@
 import akka.actor.ActorSystem
-import akka.event.Logging
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import service.healthcheck._
 
-object Main extends App with HealthRoutes {
+object Bootstrap extends App with HealthRoutes {
 
   implicit val system = ActorSystem()
 
@@ -12,9 +11,9 @@ object Main extends App with HealthRoutes {
 
   implicit val materializer = ActorMaterializer()
 
-  val logger = Logging(system, "demo-service")
+  val settings = Settings(system)
 
-  logger.info(s"Starting service on port ${Config.Http.port}")
+  logger.info(s"Starting service on port ${settings.Http.port}")
 
-  Http().bindAndHandle(routes, Config.Http.interface, Config.Http.port)
+  Http().bindAndHandle(routes, settings.Http.interface, settings.Http.port)
 }
