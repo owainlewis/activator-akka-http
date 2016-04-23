@@ -11,7 +11,7 @@ scalaVersion := "2.11.7"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
-  val akkaV       = "2.4.2"
+  val akkaV       = "2.4.4"
   val akkaStreamV = "2.0.4"
   val scalaTestV  = "2.2.5"
   Seq(
