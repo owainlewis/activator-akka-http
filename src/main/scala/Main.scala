@@ -11,12 +11,10 @@ object Main extends App with HealthRoutes {
   implicit val system = ActorSystem()
   implicit val materializer = ActorMaterializer()
 
-  import system.dispatcher
-
   val settings = Settings(system)
-
+  
   val logger = Logging(system, getClass)
-
+  
   val routes = logRequestResult("", InfoLevel)(healthRoutes)
 
   Http().bindAndHandle(healthRoutes, settings.Http.interface, settings.Http.port) map { binding =>
