@@ -2,35 +2,24 @@ package service.healthcheck
 
 import java.lang.management.ManagementFactory
 
-import akka.event.Logging
-import akka.http.scaladsl.model.StatusCodes
+import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
-import service.ServiceBase
+import akka.http.scaladsl.server.Route
+import akka.stream.ActorMaterializer
 
 import scala.concurrent.duration._
 
-final case class Uptime(value: Long)
+trait HealthRoutes {
 
-object Uptime {
-  import spray.json.DefaultJsonProtocol._
-  implicit val format = jsonFormat1(Uptime.apply)
-}
-
-trait HealthRoutes extends ServiceBase {
-
-  def routes = pathPrefix("health") {
+  val healthRoutes: Route = pathPrefix("health") {
     path("ping") {
       get {
-        logRequest("/ping", Logging.InfoLevel) {
-          complete(StatusCodes.OK, "OK")
+          complete("OK")
         }
-      }
-    } ~ path("uptime") {
+      } ~ path("uptime") {
       get {
-        logRequest("/uptime", Logging.InfoLevel) {
-          val uptime = Duration(ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS).toSeconds
-          complete(StatusCodes.OK, Uptime(uptime))
-        }
+        val uptime = Duration(ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS).toSeconds
+        complete(uptime.toString)
       }
     }
   }

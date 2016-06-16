@@ -2,22 +2,20 @@ package service.healthcheck
 
 import akka.http.scaladsl.model.{ContentTypes, StatusCodes}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
-import org.scalatest._
+import org.scalatest.{Matchers, _}
 
 class HealthRoutesSpec extends HealthRoutes with WordSpecLike with Matchers with ScalatestRouteTest {
 
-  "The health service" should {
+  "The HealthRoutes" should {
 
-    "return HTTP success for the ping route" in {
-      Get("/health/ping") ~> routes ~> check {
+    "return HTTP success for GET /health/ping" in {
+      Get("/health/ping") ~> healthRoutes ~> check {
         status shouldEqual StatusCodes.OK
       }
     }
-
-    "return HTTP success for the uptime route" in {
-      Get("/health/uptime") ~> routes ~> check {
+    "return HTTP success for GET /health/uptime" in {
+      Get("/health/uptime") ~> healthRoutes ~> check {
         status shouldEqual StatusCodes.OK
-        contentType shouldEqual ContentTypes.`application/json`
       }
     }
   }
