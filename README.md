@@ -11,7 +11,7 @@ Assuming you have Typesafe activator to create a new microservice based on this 
 activator new
 ```
 
-Type akka-http-microservice-quickstart for the template name and it will create a new project in your current directory.
+Type *akka-http-microservice-quickstart* for the template name and it will create a new project in your current directory.
 
 ## Starting the service
 
