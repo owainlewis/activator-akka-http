@@ -5,13 +5,11 @@ without being too prescriptive or adding too much unwanted code.
 
 ## Quickstart
 
-Assuming you have Typesafe activator to create a new microservice based on this template run
+Assuming you have Typesafe activator to create a new microservice based on this template run the following, replacing "hello-service" with the name of your service.
 
 ```
-activator new
+activator new hello-service akka-http-microservice-quickstart
 ```
-
-Type **akka-http-microservice-quickstart** for the template name and it will create a new project in your current directory.
 
 ## Starting the service
 
