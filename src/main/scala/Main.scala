@@ -7,9 +7,9 @@ import akka.stream.ActorMaterializer
 import service.healthcheck._
 
 object Main extends App with HealthRoutes {
-
   implicit val system = ActorSystem()
   implicit val materializer = ActorMaterializer()
+  implicit val ec = system.dispatcher 
 
   val settings = Settings(system)
   
