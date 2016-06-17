@@ -2,10 +2,8 @@ package service.healthcheck
 
 import java.lang.management.ManagementFactory
 
-import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import akka.stream.ActorMaterializer
 
 import scala.concurrent.duration._
 
