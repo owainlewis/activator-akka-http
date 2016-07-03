@@ -11,7 +11,7 @@ scalaVersion := "2.11.8"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
-  val akkaV       = "2.4.4"
+  val akkaV       = "2.4.7"
   val scalaTestV  = "2.2.6"
   Seq(
     "com.typesafe"       % "config"                               % "1.3.0",
