@@ -9,7 +9,7 @@ import scala.concurrent.duration._
 
 trait HealthRoutes {
 
-  val healthRoutes: Route = pathPrefix("health") {
+  def healthRoutes = pathPrefix("health") {
     path("ping") {
       get {
           complete("OK")
