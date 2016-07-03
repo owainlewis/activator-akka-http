@@ -16,9 +16,10 @@ trait HealthRoutes {
         }
       } ~ path("uptime") {
       get {
-        val uptime = Duration(ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS).toSeconds
-        complete(uptime.toString)
+        complete(getUptime.toString)
       }
     }
   }
+  
+  private def getUptime = Duration(ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS).toSeconds
 }
