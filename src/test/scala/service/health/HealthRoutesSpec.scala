@@ -1,4 +1,4 @@
-package service.healthcheck
+package service.health
 
 import akka.http.scaladsl.model.{ContentTypes, StatusCodes}
 import akka.http.scaladsl.testkit.ScalatestRouteTest

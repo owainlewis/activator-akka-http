@@ -1,9 +1,8 @@
-package service.healthcheck
+package service.health
 
 import java.lang.management.ManagementFactory
 
 import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.server.Route
 
 import scala.concurrent.duration._
 
