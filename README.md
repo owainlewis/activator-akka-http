@@ -3,7 +3,7 @@
 This project gives you a base template for creating microservices using Akka HTTP.
 The aim is to give you enough boilerplate to get started without being too prescriptive or adding too much unwanted code.
 
-This examples uses Guice for Dependency Injection. If you don't need it, just remove it.
+The example project uses Guice for Dependency Injection. If you don't need it, just remove it.
 
 ## Quickstart
 
