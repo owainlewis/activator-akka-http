@@ -3,9 +3,7 @@ package service.users
 import scala.concurrent.Future
 
 trait UserRepository {
-
   def getUsers: Future[List[User]]
-
   def getUser(id: Int): Future[Option[User]]
 }
 

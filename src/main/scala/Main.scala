@@ -28,5 +28,3 @@ object Main extends App with HealthRoutes {
     logger.info(s"Server started on port {}", binding.localAddress.getPort)
   } recoverWith { case _ => system.terminate() }
 }
-
-
